@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание №15</title>
+    <style>
+        input, label{
+            margin-bottom: 10px;
+        }
+    </style>
+    <script lang="JavaScript">
+        function Calculation(){
+            var number_a = document.getElementsByName("number_a")[0].value;
+            var number_b = document.getElementsByName("number_b")[0].value;
+            var number_c = document.getElementsByName("number_c")[0].value;
+
+            if(isNaN(number_a) || isNaN(number_b) || isNaN(number_c)){
+                alert("Пожалуйста, введите числовое значение для всех полей.");
+            }else{
+                if(number_a >= number_b && number_b >= number_c){
+                number_a*=2;
+                number_b*=2;
+                number_c*=2;
+            }else{
+                number_a = number_a < 0 ? number_a * - 1 : number_a;
+                number_b = number_b < 0 ? number_b * - 1 : number_b;
+                number_c = number_c < 0 ? number_c * - 1 : number_c;
+            }
+
+            document.getElementById("label_a").textContent = "a = " + number_a;
+            document.getElementById("label_b").textContent = "b = " + number_b;
+            document.getElementById("label_c").textContent = "c = " + number_c;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="">
+        <p>Даны действительные числа a, b, c. Удвоить эти числа, если a ≥ b ≥ c, и 
+            заменить их абсолютными значениями, если это не так. </p>
+        <p>Введите действительные числа:</p>
+        <input type="text" name="number_a" placeholder="Число a" autofocus><br>
+        <input type="text" name="number_b" placeholder="Число b"><br>
+        <input type="text" name="number_c" placeholder="Число c"><br>
+        <label for="">Результат:</label><br>
+        <label for="" id="label_a">a = </label><br>
+        <label for="" id="label_b">b = </label><br>
+        <label for="" id="label_c">c = </label><br>
+        <input type="button" value="Расчитать" onclick="Calculation()">
+    </form>
+</body>
+</html>
