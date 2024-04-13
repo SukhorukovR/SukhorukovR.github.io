@@ -11,26 +11,32 @@
     </style>
     <script lang="JavaScript">
         function Calculation(){
+            // Получаем значения из полей ввода
             var number_a = document.getElementsByName("number_a")[0].value;
             var number_b = document.getElementsByName("number_b")[0].value;
             var number_c = document.getElementsByName("number_c")[0].value;
 
+            // Проверяем, являются ли введенные значения числами
             if(isNaN(number_a) || isNaN(number_b) || isNaN(number_c)){
+                // Выводим сообщение об ошибке, если введены не числа
                 alert("Пожалуйста, введите числовое значение для всех полей.");
             }else{
+                // Проверяем условие и выполняем соответствующие действия
                 if(number_a >= number_b && number_b >= number_c){
-                number_a*=2;
-                number_b*=2;
-                number_c*=2;
-            }else{
-                number_a = number_a < 0 ? number_a * - 1 : number_a;
-                number_b = number_b < 0 ? number_b * - 1 : number_b;
-                number_c = number_c < 0 ? number_c * - 1 : number_c;
-            }
+                    number_a *= 2;
+                    number_b *= 2;
+                    number_c *= 2;
+                }else{
+                    // Заменяем отрицательные значения на их абсолютные значения
+                    number_a = number_a < 0 ? number_a * -1 : number_a;
+                    number_b = number_b < 0 ? number_b * -1 : number_b;
+                    number_c = number_c < 0 ? number_c * -1 : number_c;
+                }
 
-            document.getElementById("label_a").textContent = "a = " + number_a;
-            document.getElementById("label_b").textContent = "b = " + number_b;
-            document.getElementById("label_c").textContent = "c = " + number_c;
+                // Выводим результат на страницу
+                document.getElementById("label_a").textContent = "a = " + number_a;
+                document.getElementById("label_b").textContent = "b = " + number_b;
+                document.getElementById("label_c").textContent = "c = " + number_c;
             }
         }
     </script>
